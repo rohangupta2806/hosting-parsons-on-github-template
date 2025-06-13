@@ -10,12 +10,12 @@ title: Multiple Parson's Problems on One Page
 ## Parsons 1 (Leap Year)
 Re-arrange the blocks below to determine if a year is a leap year or not:
 
-<div id="Leap Year-sortableTrash" class="sortable-code"></div> 
-<div id="Leap Year-sortable" class="sortable-code"></div> 
+<div id="leap_year-sortableTrash" class="sortable-code"></div> 
+<div id="leap_year-sortable" class="sortable-code"></div> 
 <div style="clear:both;"></div> 
 <p> 
-    <input id="Leap Year-feedbackLink" value="Get Feedback" type="button" /> 
-    <input id="Leap Year-newInstanceLink" value="Reset Problem" type="button" /> 
+    <input id="leap_year-feedbackLink" value="Get Feedback" type="button" /> 
+    <input id="leap_year-newInstanceLink" value="Reset Problem" type="button" /> 
 </p> 
 <script type="text/javascript"> 
 (function(){
@@ -32,7 +32,7 @@ Re-arrange the blocks below to determine if a year is a leap year or not:
     "else:\n" +
     "	print(&quot;not a leap year&quot;)";
   var parsonsPuzzle = new ParsonsWidget({
-    "sortableId": "Leap Year-sortable",
+    "sortableId": "leap_year-sortable",
     "max_wrong_lines": 10,
     "grader": ParsonsWidget._graders.LineBasedGrader,
     "exec_limit": 2500,
@@ -43,11 +43,11 @@ Re-arrange the blocks below to determine if a year is a leap year or not:
   });
   parsonsPuzzle.init(initial);
   parsonsPuzzle.shuffleLines();
-  $("#Leap Year-newInstanceLink").click(function(event){ 
+  $("#leap_year-newInstanceLink").click(function(event){ 
       event.preventDefault(); 
       parsonsPuzzle.shuffleLines(); 
   }); 
-  $("#Leap Year-feedbackLink").click(function(event){ 
+  $("#leap_year-feedbackLink").click(function(event){ 
       event.preventDefault(); 
       parsonsPuzzle.getFeedback(); 
   }); 
