@@ -96,3 +96,49 @@ Write a program that identifies the compound based on the chemical structure and
   }); 
 })(); 
 </script>
+
+## Parsons 3: Temperature Conversion
+
+Write code to convert either from Celsius to Kelvin or from Fahrenheit to Kelvin. You will take a string value to determine whether the input is Celsius or Fahrenheit. If the input string is not Celsius or Fahrenheit, print "Unknown Scale". 
+The equation for converting from Celsius to Kelvin is: 
+
+
+<div id="temperature-sortableTrash" class="sortable-code"></div> 
+<div id="temperature-sortable" class="sortable-code"></div> 
+<div style="clear:both;"></div> 
+<p> 
+    <input id="temperature-feedbackLink" value="Get Feedback" type="button" /> 
+    <input id="temperature-newInstanceLink" value="Reset Problem" type="button" /> 
+</p> 
+<script type="text/javascript"> 
+(function(){
+  var initial = "scale = &#039;celsius&#039;\n" +
+    "temperature = 25\n" +
+    "if scale == &#039;celsius&#039;:\n" +
+    "    kelvin = temperature + 273.15\n" +
+    "elif scale == &#039;fahrenheit&#039;:\n" +
+    "    kelvin = (temperature + 459.67) * 5/9\n" +
+    "else:\n" +
+    "    print(&#039;Unknown scale&#039;)";
+  var parsonsPuzzle = new ParsonsWidget({
+    "sortableId": "temperature-sortable",
+    "max_wrong_lines": 10,
+    "grader": ParsonsWidget._graders.LineBasedGrader,
+    "exec_limit": 2500,
+    "can_indent": true,
+    "x_indent": 50,
+    "lang": "en",
+    "show_feedback": true
+  });
+  parsonsPuzzle.init(initial);
+  parsonsPuzzle.shuffleLines();
+  $("#temperature-newInstanceLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.shuffleLines(); 
+  }); 
+  $("#temperature-feedbackLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.getFeedback(); 
+  }); 
+})(); 
+</script>
