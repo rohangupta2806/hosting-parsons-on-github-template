@@ -142,3 +142,41 @@ The equation for converting from Celsius to Kelvin is:
   }); 
 })(); 
 </script>
+
+## Parsons 4: Factorial
+
+<div id="factorial-sortableTrash" class="sortable-code"></div> 
+<div id="factorial-sortable" class="sortable-code"></div> 
+<div style="clear:both;"></div> 
+<p> 
+    <input id="factorial-feedbackLink" value="Get Feedback" type="button" /> 
+    <input id="factorial-newInstanceLink" value="Reset Problem" type="button" /> 
+</p> 
+<script type="text/javascript"> 
+(function(){
+  var initial = "result = 1\n" +
+    "for i in range(1, 8):\n" +
+    "    result *= i\n" +
+    "print(f&#039;The result is {result}&#039;)";
+  var parsonsPuzzle = new ParsonsWidget({
+    "sortableId": "factorial-sortable",
+    "max_wrong_lines": 10,
+    "grader": ParsonsWidget._graders.LineBasedGrader,
+    "exec_limit": 2500,
+    "can_indent": true,
+    "x_indent": 50,
+    "lang": "en",
+    "show_feedback": true
+  });
+  parsonsPuzzle.init(initial);
+  parsonsPuzzle.shuffleLines();
+  $("#factorial-newInstanceLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.shuffleLines(); 
+  }); 
+  $("#factorial-feedbackLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.getFeedback(); 
+  }); 
+})(); 
+</script>
